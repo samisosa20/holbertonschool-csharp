@@ -1,58 +1,78 @@
 ﻿using System;
 
-///<summary>Base class</summary>
-abstract class Base
+/// <summary>
+/// Base - abstract class
+/// </summary>
+public abstract class Base
 {
-  public string name = "";
+	/// <summary>
+	/// name - public property
+	/// </summary>
+	public string name { get; set; }
 
+	/// <summary>
+	/// ToString - override of 'ToString'
+	/// </summary>
+	/// <returns>'name' is a 'type'</returns>
 	public override string ToString()
 	{
-		return (this.name + " is a " + this.GetType().ToString());
+		return $"{name} is a {this.GetType()}";
 	}
 }
 
-/// <summary> Interactive interface </summary>
 interface IInteractive
 {
-    void Interact();
+	void Interact();
 }
 
-/// <summary> Breakable Interface </summary>
 interface IBreakable
 {
-    int durability { get; set; }
-    void Break();
+	int durability { get; set; }
+	void Break();
 }
 
-/// <summary> Collectable Interface </summary>
 interface ICollectable
 {
-    bool isCollected { get; set; }
-    void Collect();
-
+	bool isCollected { get; set; }
+	void Collect();
 }
 
-/// <summary> Class that inherits from Base class and all interfaces </summary>
-class TestObject : Base, IInteractive, IBreakable, ICollectable
+/// <summary>
+/// TestObject - class to test inherits from abstract class and interfaces
+/// </summary>
+public class TestObject : Base, IInteractive, IBreakable, ICollectable
 {
+	/// <summary>
+	/// durability property
+	/// </summary>
 	public int durability { get; set; }
+
+	/// <summary>
+	/// isCollected property
+	/// </summary>
 	public bool isCollected { get; set; }
 
-    /// <summary> Takes place when the object interacts with something </summary>
+	/// <summary>
+	/// Interact implementation
+	/// </summary>
 	public void Interact()
 	{
-
+		return;
 	}
 
-    /// <summary> Takes place when the object brakes. </summary>
+	/// <summary>
+	/// Break implementation
+	/// </summary>
 	public void Break()
 	{
-
+		return;
 	}
 
-    /// <summary> Takes place when the object collects something.</summary>
+	/// <summary>
+	/// Collect implementation
+	/// </summary>
 	public void Collect()
 	{
-
+		return;
 	}
 }
